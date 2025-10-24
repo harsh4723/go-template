@@ -7,6 +7,10 @@ import (
 	log "go.uber.org/zap"
 )
 
+type Logger struct {
+	*log.Logger
+}
+
 func level(level string) log.AtomicLevel {
 	switch level {
 	case "info":
@@ -22,7 +26,7 @@ func level(level string) log.AtomicLevel {
 	}
 }
 
-func NewLogger(logLevel string) (*log.Logger, error) {
+func NewLogger(logLevel string) (*Logger, error) {
 	var (
 		logger *log.Logger
 		err    error
@@ -36,5 +40,5 @@ func NewLogger(logLevel string) (*log.Logger, error) {
 		return nil, errors.Wrap(err, "create logger from config failed")
 	}
 
-	return logger, err
+	return &Logger{logger}, err
 }

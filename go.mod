@@ -5,6 +5,7 @@ go 1.23.0
 toolchain go1.24.9
 
 require (
+	github.com/go-chi/chi/v5 v5.2.3
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/viper v1.21.0
 	go.uber.org/zap v1.27.0
