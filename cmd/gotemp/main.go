@@ -3,7 +3,11 @@ package main
 import gotemp "go.template"
 
 func main() {
-	_, err := gotemp.New()
+	g, err := gotemp.New()
+	if err != nil {
+		panic(err)
+	}
+	err = g.Open()
 	if err != nil {
 		panic(err)
 	}

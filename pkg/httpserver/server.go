@@ -21,6 +21,10 @@ type Server struct {
 	log *zaplog.Logger
 }
 
+func (s *Server) Open() error {
+	return s.ListenAndServe()
+}
+
 func New(logger *zaplog.Logger, opts ...Option) *Server {
 	mux := chi.NewRouter()
 	server := &Server{

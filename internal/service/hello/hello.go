@@ -2,6 +2,7 @@ package hello
 
 import (
 	"context"
+	"fmt"
 
 	"go.template/internal/models"
 	"go.template/internal/service"
@@ -9,13 +10,15 @@ import (
 )
 
 type svc struct {
-	logger zaplog.Logger
+	logger *zaplog.Logger
 }
 
 func (s *svc) SayHello(ctx context.Context, req models.HelloRequest) (models.HelloResponse, error) {
-	return models.HelloResponse{}, nil
+	msg := fmt.Sprintf("Hello %s", req.Name)
+
+	return models.HelloResponse{Message: msg}, nil
 }
 
-func New(logger zaplog.Logger) service.HelloService {
+func NewSvc(logger *zaplog.Logger) service.HelloService {
 	return &svc{logger: logger}
 }
