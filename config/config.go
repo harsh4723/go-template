@@ -7,10 +7,11 @@ import (
 )
 
 type Config struct {
-	AppName  string `mapstructure:"APP_NAME"`
-	Port     string `mapstructure:"PORT"`
-	Env      string `mapstructure:"ENV"`
-	LogLevel string `mapstructure:"LOG_LEVEL"`
+	AppName       string `mapstructure:"APP_NAME"`
+	Port          string `mapstructure:"PORT"`
+	Env           string `mapstructure:"ENV"`
+	LogLevel      string `mapstructure:"LOG_LEVEL"`
+	RequestLimMin int    `mapstructure:"REQUEST_LIM_MIN"`
 }
 
 func Load() *Config {
@@ -20,9 +21,10 @@ func Load() *Config {
 
 	// Defaults
 	viper.SetDefault("APP_NAME", "go-microservice")
-	viper.SetDefault("PORT", "8080")
+	viper.SetDefault("PORT", "80")
 	viper.SetDefault("ENV", "development")
 	viper.SetDefault("LOG_LEVEL", "info")
+	viper.SetDefault("REQUEST_LIM_MIN", 100)
 
 	// Environment overrides
 	viper.AutomaticEnv()

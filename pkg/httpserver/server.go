@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	_defaultAddr         = ":8080"
+	_defaultAddr         = ":80"
 	_defaultReadTimeout  = 5 * time.Second
 	_defaultWriteTimeout = 5 * time.Second
 	_defaultIdleTimeout  = 60 * time.Second

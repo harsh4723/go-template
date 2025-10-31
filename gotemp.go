@@ -36,7 +36,7 @@ func New(opts ...Option) (*gotemp, error) {
 
 	portOption := httpserver.Port(conf.Port)
 	srv := httpserver.New(logger, portOption)
-	httprouter.NewRouter(srv, logger)
+	httprouter.NewRouter(srv, logger, conf)
 
 	return &gotemp{conf: conf, logger: logger, server: srv}, nil
 }
