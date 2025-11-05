@@ -130,7 +130,3 @@ PORT=8080 LOG_LEVEL=debug REQUEST_LIM_MIN=60 go run ./cmd/gotemp
 curl "http://localhost:8080/v1/hello?name=Harsh"
 ```
 
-### License
-MIT (or update to your preferred license)
-
-
